@@ -1,6 +1,6 @@
 package com.mpwz.rmsnew.service.sybase;
 
-import com.mpwz.rmsnew.beans.*;
+import com.mpwz.rmsnew.beans.CustomBeans.Custom;
 import com.mpwz.rmsnew.beans.sybase.TBillLT;
 import com.mpwz.rmsnew.beans.sybase.TConsSybase;
 import com.mpwz.rmsnew.beans.sybase.TMeterDetails;

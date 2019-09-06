@@ -1,5 +1,6 @@
 package com.mpwz.rmsnew.controller;
 
+import org.slf4j.Logger;
 import com.mpwz.rmsnew.interfaces.CustomInterface;
 import com.mpwz.rmsnew.service.rms.RmonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,4 +39,29 @@ public class RmonController
         }
         return response;
     }
+
+//    @RequestMapping(method = RequestMethod.GET, value = "/rms/locationCode/{locCd}/cons-no/{consNo}/file-format/{fileFormat}")
+//    public ResponseEntity getConsumerDetail(@PathVariable String locationCode, @PathVariable String consumerNo, @PathVariable String fileFormat) {
+//        String methodName = "getConsumerDetail : ";
+//        logger.info(methodName + "called");
+//        if (StringUtils.isEmpty(locationCode) || StringUtils.isEmpty(consumerNo) || StringUtils.isEmpty(fileFormat)) {
+//            logger.error(methodName + "Input param(s) is null");
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//        }
+//        if (!billService.existsByConsumerNoAndDeleted(consumerNo, MISConstants.FALSE))
+//        {
+//            final ErrorMessageInterface errorMessage = new ErrorMessage("Consumer not found");
+//            logger.error(methodName + errorMessage.getErrorMessage());
+//            return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+//        }
+//        MasterReport report = null;
+//        ResponseEntity<?> responseEntity = null;
+//        try {
+//            report = billReportService.getConsumerDetailReport(consumerNo);
+//            responseEntity = ReportUtility.getResponseFromReport(report, fileFormat);
+//        } finally {
+//            ReportUtility.cleanup(report);
+//        }
+//        return responseEntity;
+//    }
 }

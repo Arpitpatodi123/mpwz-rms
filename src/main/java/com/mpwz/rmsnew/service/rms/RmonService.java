@@ -1,6 +1,6 @@
 package com.mpwz.rmsnew.service.rms;
 
-import com.mpwz.rmsnew.beans.*;
+import com.mpwz.rmsnew.beans.CustomBeans.Custom;
 import com.mpwz.rmsnew.beans.rms.Rmon;
 import com.mpwz.rmsnew.beans.rms.TCons;
 import com.mpwz.rmsnew.beans.rms.TConsS;
@@ -42,4 +42,29 @@ public class RmonService
 
         return customInterface;
     }
+
+//    public MasterReport getConsumerDetailReport(final String consumerNo) {
+//        final String methodName = "getConsumerDetailReport() : ";
+//        logger.info(methodName + "called");
+//        if (StringUtils.isEmpty(consumerNo)) {
+//            logger.error(methodName + "Input param(s) is null");
+//            return null;
+//        }
+//
+//        final URL reportURL = "Path to PRPT file";
+//        final MasterReport report = ReportUtility.bootUpReport(reportURL);
+//        final String query = "select ....................";
+//
+//        final SQLReportDataFactory dataFactory = ReportUtility.getDataFactory(ngbDbProperties);
+//        if (dataFactory == null) {
+//            logger.error(methodName + "Data factory is null");
+//            return null;
+//        }
+//        dataFactory.setQuery("xyz", query);
+//        report.setDataFactory(dataFactory);
+//
+//        report.getParameterValues().put("param name", "param value");
+//        report.getParameterValues().put(MISConstants.TEMPLATE_VERSION, version);
+//        return report;
+//    }
 }

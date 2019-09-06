@@ -1,4 +1,4 @@
-package com.mpwz.rmsnew.beans;
+package com.mpwz.rmsnew.beans.CustomBeans;
 
 import com.mpwz.rmsnew.beans.rms.Rmon;
 import com.mpwz.rmsnew.beans.rms.TCons;
