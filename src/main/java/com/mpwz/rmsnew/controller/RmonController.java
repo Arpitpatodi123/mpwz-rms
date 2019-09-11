@@ -1,5 +1,7 @@
 package com.mpwz.rmsnew.controller;
 
+import com.mpwz.rmsnew.utility.ReportUtility;
+import org.pentaho.reporting.engine.classic.core.MasterReport;
 import org.slf4j.Logger;
 import com.mpwz.rmsnew.interfaces.CustomInterface;
 import com.mpwz.rmsnew.service.rms.RmonService;
@@ -42,28 +44,30 @@ public class RmonController
         return response;
     }
 
-//    @RequestMapping(method = RequestMethod.GET, value = "/rms/locationCode/{locCd}/cons-no/{consNo}/file-format/{fileFormat}")
-//    public ResponseEntity getConsumerDetail(@PathVariable String locationCode, @PathVariable String consumerNo, @PathVariable String fileFormat) {
-//        String methodName = "getConsumerDetail : ";
-//        logger.info(methodName + "called");
-//        if (StringUtils.isEmpty(locationCode) || StringUtils.isEmpty(consumerNo) || StringUtils.isEmpty(fileFormat)) {
-//            logger.error(methodName + "Input param(s) is null");
-//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//        }
-//        if (!billService.existsByConsumerNoAndDeleted(consumerNo, MISConstants.FALSE))
-//        {
-//            final ErrorMessageInterface errorMessage = new ErrorMessage("Consumer not found");
-//            logger.error(methodName + errorMessage.getErrorMessage());
-//            return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
-//        }
-//        MasterReport report = null;
-//        ResponseEntity<?> responseEntity = null;
-//        try {
-//            report = billReportService.getConsumerDetailReport(consumerNo);
-//            responseEntity = ReportUtility.getResponseFromReport(report, fileFormat);
-//        } finally {
-//            ReportUtility.cleanup(report);
-//        }
-//        return responseEntity;
-//    }
+    @RequestMapping(method = RequestMethod.GET, value = "/rms/locationCode/{locCd}/cons-no/{consNo}/file-format/{fileFormat}")
+    public ResponseEntity getConsumerDetail(@PathVariable String locCd, @PathVariable String consNo, @PathVariable String fileFormat) {
+        String methodName = "getConsumerDetail : ";
+        /*logger.info(methodName + "called");
+        if (StringUtils.isEmpty(locationCode) || StringUtils.isEmpty(consumerNo) || StringUtils.isEmpty(fileFormat)) {
+            logger.error(methodName + "Input param(s) is null");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        if (!billService.existsByConsumerNoAndDeleted(consumerNo, MISConstants.FALSE))
+        {
+            final ErrorMessageInterface errorMessage = new ErrorMessage("Consumer not found");
+            logger.error(methodName + errorMessage.getErrorMessage());
+            return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+        }*/
+        MasterReport report = null;
+        ResponseEntity<?> responseEntity = null;
+        try {
+            report = rmonService.getConsumerDetailReport(Integer.parseInt( locCd ), Integer.parseInt( consNo ));
+            responseEntity = ReportUtility.getResponseFromReport(report, fileFormat);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            ReportUtility.cleanup(report);
+        }
+        return responseEntity;
+    }
 }

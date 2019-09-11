@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
@@ -23,6 +24,7 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 @EnableJpaRepositories(entityManagerFactoryRef = "rmsEntityManagerFactory", transactionManagerRef = "rmsTransactionManager",basePackages = {"com.mpwz.rmsnew.repository.rms"})
 @ComponentScan(basePackages = {"com.mpwz.rmsnew"})
+@EnableConfigurationProperties(RMSDBconfig.class)
 public class RMSDatasourceConfiguration {
 
     private static final Logger logger = LoggerFactory.getLogger(RMSDatasourceConfiguration.class);

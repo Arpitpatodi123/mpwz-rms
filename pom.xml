@@ -40,11 +40,11 @@
 			<scope>test</scope>
 		</dependency>
 
-<!--		<dependency>-->
-<!--			<groupId>org.pentaho.reporting.engine</groupId>-->
-<!--			<artifactId>classic-core</artifactId>-->
-<!--			<version>8.0.0.0-28</version>-->
-<!--		</dependency>-->
+		<dependency>
+			<groupId>org.pentaho.reporting.engine</groupId>
+			<artifactId>classic-core</artifactId>
+			<version>8.0.0.0-28</version>
+		</dependency>
 	</dependencies>
 
 	<build>
