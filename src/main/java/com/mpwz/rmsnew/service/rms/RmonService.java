@@ -67,6 +67,7 @@ public class RmonService
 //            return null;
 //        }
 
+
         //Pentaho report path
         System.out.println("template path   " +templatepath);
         //final URL reportURL = ResourceUtils.getURL( templatepath+"/"+"rms_passbook.prpt" );
